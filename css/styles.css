@@ -14,6 +14,25 @@ body {
     color: var(--accent-dark);
 }
 
+/* Scanline effect for retro CRT feel */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15) 0px,
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    z-index: 999;
+}
+
 /* MAIN WRAP (no centering flexbox) */
 .wrap {
     max-width: 720px;
@@ -24,73 +43,168 @@ body {
 .screen {
     background: rgba(255, 241, 194, 0.92);
     border: 4px solid var(--accent-dark);
-    box-shadow: 8px 8px 0 var(--shadow);
+    box-shadow: 
+        8px 8px 0 var(--shadow),
+        inset 2px 2px 0 rgba(255, 255, 255, 0.5),
+        inset -2px -2px 0 rgba(0, 0, 0, 0.1);
     padding: 28px 20px;
     border-radius: 14px;
+    position: relative;
 }
 
 .brand {
     text-align: center;
+    margin-bottom: 8px;
 }
 
 .brand h1 {
     margin: 0;
     font-family: "Press Start 2P", monospace;
-    font-size: 14px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-shadow: 
+        2px 2px 0 rgba(90, 62, 27, 0.3),
+        4px 4px 0 rgba(90, 62, 27, 0.1);
 }
 
 .brand img {
-    width: 44px;
-    height: 44px;
+    width: 48px;
+    height: 48px;
     image-rendering: pixelated;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    filter: drop-shadow(2px 2px 0 rgba(90, 62, 27, 0.3));
 }
 
 .divider {
-    height: 2px;
-    margin: 24px 0;
+    height: 3px;
+    margin: 20px 0;
     background: repeating-linear-gradient(
         to right,
-        rgba(90, 62, 27, 0.6) 0 8px,
-        transparent 8px 16px
+        var(--accent-dark) 0 12px,
+        transparent 12px 16px
     );
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
 }
 
 .section {
     text-align: center;
+    margin-bottom: 8px;
 }
 
 .section h2 {
     font-family: "Press Start 2P", monospace;
-    font-size: 11px;
+    font-size: 12px;
     margin-bottom: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0 rgba(90, 62, 27, 0.2);
 }
 
 .section p {
     font-size: 14px;
-    line-height: 1.6;
+    line-height: 1.7;
+    margin: 8px 0;
 }
 
 .frog {
-    font-size: 32px;
-    margin: 10px 0;
+    font-size: 48px;
+    margin: 12px 0;
+    display: inline-block;
+    animation: pixelJump 0.6s ease-in-out infinite;
+}
+
+@keyframes pixelJump {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
 }
 
 footer {
     text-align: center;
-    margin-top: 20px;
-    font-size: 11px;
+    margin-top: 24px;
+    font-size: 10px;
     opacity: 0.7;
     padding: 20px 10px;
+    font-family: "Press Start 2P", monospace;
+    letter-spacing: 1px;
 }
 
-/* MOBILE TWEAKS ONLY */
-@media (max-width: 600px) {
+/* TABLET */
+@media (max-width: 768px) {
+    .wrap {
+        padding: 20px 14px 35px;
+    }
+
+    .screen {
+        padding: 24px 18px;
+    }
+
+    .brand h1 {
+        font-size: 14px;
+    }
+
+    .frog {
+        font-size: 40px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
     .wrap {
         padding: 16px 12px 30px;
     }
 
     .screen {
-        padding: 20px 16px;
+        padding: 18px 14px;
+        border: 3px solid var(--accent-dark);
+        box-shadow: 
+            4px 4px 0 var(--shadow),
+            inset 1px 1px 0 rgba(255, 255, 255, 0.5),
+            inset -1px -1px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .brand h1 {
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+
+    .brand img {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 10px;
+    }
+
+    .divider {
+        margin: 16px 0;
+        height: 2px;
+    }
+
+    .section {
+        margin-bottom: 6px;
+    }
+
+    .section h2 {
+        font-size: 10px;
+        margin-bottom: 10px;
+    }
+
+    .section p {
+        font-size: 12px;
+        line-height: 1.6;
+        margin: 6px 0;
+    }
+
+    .frog {
+        font-size: 32px;
+        margin: 10px 0;
+    }
+
+    footer {
+        font-size: 9px;
+        margin-top: 18px;
+        padding: 16px 8px;
     }
 }
