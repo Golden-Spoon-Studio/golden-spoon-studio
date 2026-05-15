@@ -5,11 +5,16 @@
     --shadow: #b77a1f;
 }
 
-html,
-body {
+html {
     height: 100%;
+}
+
+body {
+    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     background: radial-gradient(circle at top, #ffe7ad 0%, var(--bg) 60%);
+    background-attachment: fixed;
     font-family: Inter, system-ui, sans-serif;
     color: var(--accent-dark);
 }
