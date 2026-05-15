@@ -1,0 +1,96 @@
+:root {
+    --bg: #f6d58a;
+    --panel: #fff1c2;
+    --accent-dark: #5a3e1b;
+    --shadow: #b77a1f;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    background: radial-gradient(circle at top, #ffe7ad 0%, var(--bg) 60%);
+    font-family: Inter, system-ui, sans-serif;
+    color: var(--accent-dark);
+}
+
+/* MAIN WRAP (no centering flexbox) */
+.wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px 16px 40px;
+}
+
+.screen {
+    background: rgba(255, 241, 194, 0.92);
+    border: 4px solid var(--accent-dark);
+    box-shadow: 8px 8px 0 var(--shadow);
+    padding: 28px 20px;
+    border-radius: 14px;
+}
+
+.brand {
+    text-align: center;
+}
+
+.brand h1 {
+    margin: 0;
+    font-family: "Press Start 2P", monospace;
+    font-size: 14px;
+}
+
+.brand img {
+    width: 44px;
+    height: 44px;
+    image-rendering: pixelated;
+    margin-bottom: 10px;
+}
+
+.divider {
+    height: 2px;
+    margin: 24px 0;
+    background: repeating-linear-gradient(
+        to right,
+        rgba(90, 62, 27, 0.6) 0 8px,
+        transparent 8px 16px
+    );
+}
+
+.section {
+    text-align: center;
+}
+
+.section h2 {
+    font-family: "Press Start 2P", monospace;
+    font-size: 11px;
+    margin-bottom: 12px;
+}
+
+.section p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.frog {
+    font-size: 32px;
+    margin: 10px 0;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 11px;
+    opacity: 0.7;
+    padding: 20px 10px;
+}
+
+/* MOBILE TWEAKS ONLY */
+@media (max-width: 600px) {
+    .wrap {
+        padding: 16px 12px 30px;
+    }
+
+    .screen {
+        padding: 20px 16px;
+    }
+}
