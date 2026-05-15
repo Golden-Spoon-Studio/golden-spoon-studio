@@ -13,6 +13,10 @@ body {
     /* Put the background on the body — Safari reliably paints the status/home
        indicator areas with the body's background. Use fallbacks for older iOS.
     */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     margin: 0;
     padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
     -webkit-padding-start: env(safe-area-inset-left);
@@ -23,7 +27,6 @@ body {
     background-color: var(--bg);
     background-size: cover;
     background-repeat: no-repeat;
-    min-height: 100vh;
     min-height: -webkit-fill-available;
 }
 
