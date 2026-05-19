@@ -78,9 +78,26 @@
           </p>
         </section>
         <div class="divider"></div>
+        <div class="contact-row">
+          <a class="contact-button" id="contactLink" href=""> Contact Me</a>
+          <a
+            class="contact-button support-button"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Support Me
+          </a>
+        </div>
       </div>
 
       <footer>© 2026 Golden Spoon Studio</footer>
     </div>
+    <script>
+      const user = "info";
+      const domain = ["goldenspoon", "studio"].join(".");
+      const email = `${user}@${domain}`;
+
+      document.getElementById("contactLink").href = `mailto:${email}`;
+    </script>
   </body>
 </html>
